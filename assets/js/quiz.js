@@ -1,8 +1,8 @@
 // QUIZ GAME PAGE
 
 // CONSTANTS:
-//pulling from the id = "question"
 
+//pulling from the id = "question"
 const question = document.getElementById("question");
 // pulling from the class name for = "choiceText" and making it into an array
 const choices = Array.from(document.getElementsByClassName("choiceText"));
@@ -112,6 +112,9 @@ const MAX_QUEST = 5; // how many questions per game
 function startTimer() {
     timerInterval = setInterval(
         function() {
+
+            //if statement check if time is 0, if so, end game.
+
             time--
             timer.textContent=time
         }, 1000
@@ -125,7 +128,7 @@ function startQuiz() {
     // all available questions from the questions array using the spread operator
     availQuest = [...questions];
     // logs all available questions
-    // CONSOLE LOG FIRST TO CHECK IF ITS WORKING: 
+    // CONSOLE LOG FIRST TO CHECK IF ITS WORKING
     newQuest();
     startTimer();
 };
