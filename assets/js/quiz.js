@@ -1,5 +1,113 @@
 // QUIZ GAME PAGE
 
+// CONSTANTS:
+//pulling from the id = "question"
+const question = document.getElementById("question");
+
+// pulling from the class name for = "choiceText" and making it into an array
+const choices = Array.from(document.getElementsByClassName("choiceText"));
+
+// track score through current game
+const scoreText = document.getElementById("score");
+
+const CORRECT_BONUS = 10; // how many points user will get for correct answer
+const MAX_QUESTIONS = 5; // how many questions per game
+
+// variables for quiz questions
+// let is used for variables that are block-scoped, and can be updated but not redeclared.
+let currentQuest = {};
+let acceptAnswers = false;
+let userScore = 0;     // starting the score at 0
+let questCount = 0;      // what question the user is on
+// empty array of all available questions
+let availQuest = [];
+// each question is an object with a question field, 4 choices and an answer
+let quest = [
+    {
+        question: "Which of the following is not a Javascript data type?",
+        choice1: "undefined",
+        choice2: "number",
+        choice3: "boolean",
+        choice4: "float",
+        answer: 4
+    },
+    {
+        question: "Javascript ignores...",
+        choice1: "spaces",
+        choice2: "tabs",
+        choice3: "newlines",
+        choice4: "all of the above",
+        answer: 4
+    },
+    {
+        question: "Which of the following in not a proper Javascript looping structure?",
+        choice1: "for",
+        choice2: "forwhich",
+        choice3: "while",
+        choice4: "dowhile",
+        answer: 3
+    },
+    {
+        question: "Javascript is ideal to...",
+        choice1: "Make computations in HTML simpler",
+        choice2: "Minimise storage requirements on the web server",
+        choice3: "Increase the download time for the client",
+        choice4: "none of the above",
+        answer: 2
+    },
+    {
+        question: "Which syntax is used to get a particular value using the tagged name?",
+        choice1: "getElementID()",
+        choice2: "getElementsbyName()",
+        choice3: "getElementsbyTagName()",
+        choice4: "getTagName()",
+        answer: 3
+    },
+    {
+        question: "What are variables used for in Javascript?",
+        choice1: "storing numbers, dates or other values",
+        choice2: "varying randomly",
+        choice3: "causing high-school algebra flashbacks",
+        choice4: "none of the above",
+        answer: 1
+    },
+    {
+        question: "Which of the following is not a valid Javascript variable name?",
+        choice1: "2names",
+        choice2: "_first_and_last_names",
+        choice3: "FirstAndLast",
+        choice4: "none of the above",
+        answer: 1
+    },
+    {
+        question: "Which statement is used to test for a specific condition?",
+        choice1: "select",
+        choice2: "if",
+        choice3: "switch",
+        choice4: "for",
+        answer: 2
+    },
+    {
+        question: "Inside which HTML element do we put the Javascript?",
+        choice1: "<javascript>",
+        choice2: "<js>",
+        choice3: "<script>",
+        choice4: "<scripting>",
+        answer: 3
+    },
+    {
+        question: "How do you write 'Hello World' in an alert box?",
+        choice1: "msgBox('Hello World');",
+        choice2: "alertBox('Hello World');",
+        choice3: "msg('Hello World');",
+        choice4: "alert('Hello World');",
+        answer: 4
+    },
+]
+
+
+
+
 // Rules:
 // Test your knowledge of Javascript with this timed quiz!
 // This is a multiple choice quiz with code-related questions.
