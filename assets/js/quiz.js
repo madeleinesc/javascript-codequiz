@@ -2,27 +2,24 @@
 
 // CONSTANTS:
 //pulling from the id = "question"
-const question = document.getElementById("question");
 
+const question = document.getElementById("question");
 // pulling from the class name for = "choiceText" and making it into an array
 const choices = Array.from(document.getElementsByClassName("choiceText"));
 
 // track score through current game
 const scoreText = document.getElementById("score");
 
-const CORRECT_BONUS = 10; // how many points user will get for correct answer
-const MAX_QUESTIONS = 5; // how many questions per game
-
 // variables for quiz questions
 // let is used for variables that are block-scoped, and can be updated but not redeclared.
 let currentQuest = {};
 let acceptAnswers = false;
-let userScore = 0;     // starting the score at 0
-let questCount = 0;      // what question the user is on
+let score = 0;     // starting the score at 0
+let questionCount = 0;      // what question the user is on
 // empty array of all available questions
 let availQuest = [];
 // each question is an object with a question field, 4 choices and an answer
-let quest = [
+let questions = [
     {
         question: "Which of the following is not a Javascript data type?",
         choice1: "undefined",
@@ -105,9 +102,11 @@ let quest = [
     },
 ]
 
+const MAX_QUEST = 5; // how many questions per game
+
 // start quiz function 
 function startQuiz() {
-    questCount = 0;
+    questionCount = 0;
     score = 0;
     // all available questions from the questions array using the spread operator
     availQuest = [...questions];
@@ -116,19 +115,17 @@ function startQuiz() {
     newQuest();
 };
 
-// FUNCTIONS //
-// function to get a new question
+// new question function 
 function newQuest() {
     // if available questions.length is 0 or the question counter is greater or equal to max questions....
-    if (availQuest.length === 0 || questCount > MAX_QUESTIONS) {
+    if (availQuest.length === 0 || questionCount > MAX_QUEST) {
         // save user scores when game is ended
         localStorage.setItem("recentScore", score);
         // go to end quiz page
-        return window.location.assign('');
+        return window.location.assign('end.html');
     }
-
     // when the user starts the game it will increment by 1
-    questCount++;
+    questionCount++;
     // to get a random question from the array 'availableQuestions' use math random to get random question and math floor to get integer and times by the array.length
     const questionIndex = Math.floor(Math.random() * availQuest.length);
     currentQuest = availQuest[questionIndex];
@@ -168,7 +165,7 @@ choices.forEach(choice => {
         // apply class to container(parent)
         selectedChoice.parentElement.classList.add(classToApply);
 
-        // timer that counts down while user is playing
+        
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
         // to get a new question after the user has picked an answer
