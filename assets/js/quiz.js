@@ -105,7 +105,85 @@ let quest = [
     },
 ]
 
+// start quiz function 
+function startQuiz() {
+    questCount = 0;
+    score = 0;
+    // all available questions from the questions array using the spread operator
+    availQuest = [...questions];
+    // logs all available questions
+    // CONSOLE LOG FIRST TO CHECK IF ITS WORKING: 
+    newQuest();
+};
 
+// FUNCTIONS //
+// function to get a new question
+function newQuest() {
+    // if available questions.length is 0 or the question counter is greater or equal to max questions....
+    if (availQuest.length === 0 || questCount > MAX_QUESTIONS) {
+        // save user scores when game is ended
+        localStorage.setItem("recentScore", score);
+        // go to end quiz page
+        return window.location.assign('');
+    }
+
+    // when the user starts the game it will increment by 1
+    questCount++;
+    // to get a random question from the array 'availableQuestions' use math random to get random question and math floor to get integer and times by the array.length
+    const questionIndex = Math.floor(Math.random() * availQuest.length);
+    currentQuest = availQuest[questionIndex];
+    // set the question, the HTML element 'innerText' to be the currentQuestion and the question property
+    question.innerText = currentQuest.question;
+
+    choices.forEach(choice => {
+        const number = choice.dataset["number"];
+        choice.innerText = currentQuest["choice" + number];
+    });
+
+    // to make it so the same question doesnt appear again in the current game
+    availQuest.splice(questionIndex, 1);
+
+    acceptAnswers = true;
+};
+
+// function to log each choice the user clicks on
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+        if (!acceptAnswers) return;
+
+        acceptAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset["number"];
+        // logs every answer in the current game
+        // will return true for correct answer to question and false for incorrect answer
+        //because one is a number and the other a string, must use == 
+
+        let classToApply = "incorrect";
+            if (selectedAnswer == currentQuest.answer) {
+                classToApply = "correct";
+            }
+        // CONSOLE LOG FIRST TO CHECK IF ITS WORKING 
+        console.log(classToApply);
+        
+        // apply class to container(parent)
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        // timer that counts down while user is playing
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+        // to get a new question after the user has picked an answer
+            newQuest();
+        }, 1000);
+    });
+});
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
+
+// call startQuiz function
+startQuiz();
 
 
 // Rules:
