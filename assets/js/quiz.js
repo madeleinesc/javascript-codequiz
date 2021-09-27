@@ -10,6 +10,10 @@ const choices = Array.from(document.getElementsByClassName("choiceText"));
 // track score through current game
 const scoreText = document.getElementById("score");
 
+// timer variables
+let time = 60
+let timerInterval = 0;
+
 // variables for quiz questions
 // let is used for variables that are block-scoped, and can be updated but not redeclared.
 let currentQuest = {};
@@ -104,6 +108,16 @@ let questions = [
 
 const MAX_QUEST = 5; // how many questions per game
 
+// function to start timer when user starts quiz
+function startTimer() {
+    timerInterval = setInterval(
+        function() {
+            time--
+            timer.textContent=time
+        }, 1000
+    )
+}
+
 // start quiz function 
 function startQuiz() {
     questionCount = 0;
@@ -113,6 +127,7 @@ function startQuiz() {
     // logs all available questions
     // CONSOLE LOG FIRST TO CHECK IF ITS WORKING: 
     newQuest();
+    startTimer();
 };
 
 // new question function 
