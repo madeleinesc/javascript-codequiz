@@ -1,0 +1,100 @@
+/* QUIZ MAIN PAGE */
+
+body {
+    background-color: whitesmoke;
+    font-family:'Times New Roman', Times, serif
+}
+
+/* universal selector */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #292438;
+}
+
+/* --------------------------------------------- */
+
+/* TIMER */
+.timerText {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.timerNo {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+hr {
+    margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------ */
+
+/* QUIZ MAIN */
+
+/* question title properties */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* flex box that is going to center main content */
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto; /* keep everything centered evem when page size is smaller */
+}
+
+/* child of container */
+.container > * {
+    width: 100vw;
+}
+
+/* flex box, stack things on top of each other */
+/* and center everything */
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* style for choices */
+.choiceContainer {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    width: 30rem;
+    text-align: center;
+    border: 0.20rem solid #292438; /*border around each choice */
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: whitesmoke;
+    color: #292438;
+}
+
+/* when cursor hovers over choices, box will move sightly up using transform */
+/* cursor set to pointer */
+.choiceContainer:hover {
+    cursor: pointer;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.choiceText {
+    width: 30rem;
+}
