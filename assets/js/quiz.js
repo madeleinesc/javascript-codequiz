@@ -112,12 +112,13 @@ const MAX_QUEST = 4; // how many questions per game
 // function to start timer when user starts quiz
 function startTimer() {
     timerInterval = setInterval(
-        function() {
-
-            //if statement check if time is 0, if so, end game.
-
+        function () {
+            if (time === 0) { //if statement check if time is 0, if so, end game.
+                clearInterval(time);
+                return window.location.assign('end.html');
+            }
             time--
-            timer.textContent=time
+            timer.textContent = time
         }, 1000
     )
 }
@@ -152,7 +153,7 @@ function newQuest() {
     // set the question, the HTML element 'innerText' to be the currentQuest and the question property
     question.innerText = currentQuest.question;
 
-    
+
     choices.forEach(choice => {
         const number = choice.dataset["number"];
         choice.innerText = currentQuest["choice" + number];
@@ -177,18 +178,18 @@ choices.forEach(choice => {
         //because one is a number and the other a string, must use == 
 
         let classToApply = "incorrect";
-            if (selectedAnswer == currentQuest.answer) {
-                classToApply = "correct";
-            }
+        if (selectedAnswer == currentQuest.answer) {
+            classToApply = "correct";
+        }
         // CONSOLE LOG FIRST TO CHECK IF ITS WORKING 
         console.log(classToApply);
-        
+
         // apply class to container(parent)
         selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
-        // to get a new question after the user has picked an answer
+            // to get a new question after the user has picked an answer
             newQuest();
         }, 1000);
     });
