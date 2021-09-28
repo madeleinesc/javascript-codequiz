@@ -29,6 +29,8 @@ As soon as the user presses play, it will open the main quiz page were they will
 
 ![when the user clicks on play they will be presented with a timed multiple choice quiz. Once the quiz is finished, the user can enter in their username and save their high score otherwise they can press play again to start quiz from the beginning.](./assets/images/JavascriptCodeQuiz2.gif)
 
+![if timer runs out, quiz will automatically stop and go to end page]()
+
 
 ## Final Comments
 This homework was quite a challenge and I still have a few things I need to modify and add to:
