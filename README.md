@@ -25,6 +25,8 @@ THEN I can save my initials and my score
 Below is a brief video showing my quiz in action. 
 As soon as the user presses play, it will open the main quiz page were they will be greeted with a countdown timer and their first mutliple choice question to answer. If they answer the question correctly, their choice will highlight green. If they answer wrong, their choice will highlight red. After 5 questions, the quiz will end and go to the end page where their score will show. The user can choose whether they would like to save their score and username or start the quiz again. 
 
+![Quiz start screen]()
+
 ![when the user clicks on play they will be presented with a timed multiple choice quiz. Once the quiz is finished, the user can enter in their username and save their high score otherwise they can press play again to start quiz from the beginning.]()
 
 
