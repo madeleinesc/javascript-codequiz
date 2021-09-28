@@ -122,6 +122,7 @@ function startTimer() {
     )
 }
 
+
 // start quiz function 
 function startQuiz() {
     questionCount = 0;
@@ -145,12 +146,13 @@ function newQuest() {
     }
     // when the user starts the game it will increment by 1
     questionCount++;
-    // to get a random question from the array 'availableQuestions' use math random to get random question and math floor to get integer and times by the array.length
+    // to get a random question from the array 'availQuest' use math random to get random question and math floor to get integer and times by the array.length
     const questionIndex = Math.floor(Math.random() * availQuest.length);
     currentQuest = availQuest[questionIndex];
-    // set the question, the HTML element 'innerText' to be the currentQuestion and the question property
+    // set the question, the HTML element 'innerText' to be the currentQuest and the question property
     question.innerText = currentQuest.question;
 
+    
     choices.forEach(choice => {
         const number = choice.dataset["number"];
         choice.innerText = currentQuest["choice" + number];
@@ -184,7 +186,6 @@ choices.forEach(choice => {
         // apply class to container(parent)
         selectedChoice.parentElement.classList.add(classToApply);
 
-        
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
         // to get a new question after the user has picked an answer
