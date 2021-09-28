@@ -106,7 +106,8 @@ let questions = [
     },
 ]
 
-const MAX_QUEST = 5; // how many questions per game
+const MAX_QUEST = 4; // how many questions per game
+// will be 5 questions as starts at 0
 
 // function to start timer when user starts quiz
 function startTimer() {
