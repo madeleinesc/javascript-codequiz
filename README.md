@@ -27,11 +27,11 @@ As soon as the user presses play, it will open the main quiz page were they will
 
 ![Quiz start screen](./assets/images/quizstartpage.png)
 
-![when the user clicks on play they will be presented with a timed multiple choice quiz. Once the quiz is finished, the user can enter in their username and save their high score otherwise they can press play again to start quiz from the beginning.](./assets/images/JavascriptCodeQuiz2.gif)
+![when the user clicks on play they will be presented with a timed multiple choice quiz. Once the quiz is finished, the user can enter in their username and save their high score otherwise they can press play again to start quiz from the beginning.](./assets/images/wholequiz.gif)
 
 
 If the timer runs out before the user can answer all 5 questions, then they lose and the quiz will automatically stop and proceed to the end page.
-![if timer runs out, quiz will automatically stop and go to end page](./assets/images/JavascriptCodeQuizMain.gif)
+![if timer runs out, quiz will automatically stop and go to end page](./assets/images/timerrunout.gif)
 
 
 ## Final Comments
