@@ -110,8 +110,7 @@ input {
     width: 20rem;
     padding: 1rem;
     font-size: 1rem;
-    border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 #292438
+    border: 0.20rem solid #292438; /* border around input form */
 }
 
 #finalScoreTitle {

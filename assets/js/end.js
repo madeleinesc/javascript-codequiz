@@ -8,7 +8,8 @@ var user = JSON.parse(localStorage.getItem("username"));
 
 // save game disabled if username not inputed
 username.addEventListener("keyup", () => {
-    // check if it logs usernames: console.log(username.value);
+    // check if it logs usernames: 
+    console.log(username.value);
     saveScoreButton.disabled = !username.value;
 });
 
