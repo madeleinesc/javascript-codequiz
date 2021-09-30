@@ -3,8 +3,8 @@
 const username = document.getElementById("username");
 const saveScoreButton = document.getElementById("saveScoreButton");
 
-// get score out of storage
-const recentScore = localStorage.getItem("recentScore");
+localStorage.setItem("username", JSON.stringify(username));
+var user = JSON.parse(localStorage.getItem("username"));
 
 // save game disabled if username not inputed
 username.addEventListener("keyup", () => {
