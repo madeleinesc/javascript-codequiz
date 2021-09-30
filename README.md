@@ -39,4 +39,5 @@ This homework was quite a challenge and I still have a few things I need to modi
 
 * the timer needs to be able to substract 10s for every wrong answer.
 * the final timer score needs to show as the final score on end page.
+* need to get localstorage to store username and score.
 * need to have a high scores page to store scores and usernames on.
