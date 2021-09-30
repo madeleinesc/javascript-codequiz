@@ -13,6 +13,6 @@ username.addEventListener("keyup", () => {
 });
 
 saveScore = e => {
-    console.log("clicked the save button");
+    console.log("clicked the save button", username);
     e.preventDefault();
 };
